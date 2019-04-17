@@ -42,7 +42,7 @@ func main() {
     fmt.Println()
     // Remove OptionB
     fmt.Println("Remove OptionB")
-    options = bitwise.RemoveFlag(options, OptionB)
+    options = bitwise.UnsetFlag(options, OptionB)
     fmt.Println("Current pool", options)
     fmt.Println()
     // Something else

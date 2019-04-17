@@ -23,8 +23,8 @@ func IsFlagSet(pool, flag Flags) bool {
 	return pool&flag == flag
 }
 
-// RemoveFlag unset "flag" value within "pool" (AND NOT)
-func RemoveFlag(pool, flag Flags) Flags {
+// UnsetFlag unset "flag" value within "pool" (AND NOT)
+func UnsetFlag(pool, flag Flags) Flags {
 	return pool &^ flag
 }
 
