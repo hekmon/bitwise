@@ -11,7 +11,7 @@ package main
 
 import (
     "fmt"
-    "strconv"
+
     "github.com/hekmon/bitwise"
 )
 
@@ -48,7 +48,7 @@ func main() {
     fmt.Println()
     // Something else
     fmt.Println("OptionA + OptionC debug print")
-    fmt.Printf("%#v\n", OptionA+OptionC)
+    fmt.Printf("%#v\n", OptionA|OptionC)
 }
 ```
 
