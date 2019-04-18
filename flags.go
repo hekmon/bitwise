@@ -39,7 +39,7 @@ func ToggleFlag(pool, flag Flags) Flags {
 	return pool ^ flag
 }
 
-// Weight returns the number of flags (bits) set in "pool" (Hamming weight)
-func Weight(pool Flags) int {
+// CountFlags returns the number of flags (bits) set in "pool" (Hamming weight)
+func CountFlags(pool Flags) int {
 	return bits.OnesCount64(uint64(pool))
 }
