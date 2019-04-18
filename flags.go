@@ -29,17 +29,17 @@ func (pool Flags) IsFlagSet(flag Flags) bool {
 
 // SetFlag activate "flag" within "pool" (OR)
 func (pool Flags) SetFlag(flag Flags) {
-	pool = pool | flag
+	pool |= flag
 }
 
 // ToggleFlag switch the state of "flag" within "pool" (XOR)
 func (pool Flags) ToggleFlag(flag Flags) {
-	pool = pool ^ flag
+	pool ^= flag
 }
 
 // UnsetFlag unset "flag" value within "pool" (AND NOT)
 func (pool Flags) UnsetFlag(flag Flags) {
-	pool = pool &^ flag
+	pool &^= flag
 }
 
 /*
