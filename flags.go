@@ -15,7 +15,7 @@ func (f Flags) String() string {
 
 // GoString implements the stdlib GoStringer interface (use "%#v")
 func (f Flags) GoString() string {
-	return fmt.Sprintf("dec(%d)|bin(%s)", f, f)
+	return fmt.Sprintf("dec(%d)|bin(%064b)", f, f)
 }
 
 // IsFlagSet returns true if the flag "flag" is present within "pool" (AND)
