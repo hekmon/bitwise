@@ -12,6 +12,7 @@ package main
 import (
     "fmt"
     "strconv"
+    "github.com/hekmon/bitwise"
 )
 
 const (
@@ -23,7 +24,7 @@ const (
 func main() {
     // Init
     fmt.Println("Initial state")
-    var options Flags
+    var options bitwise.Flags
     fmt.Println("Pool:", options)
     fmt.Println("OptionA:", OptionA)
     fmt.Println("OptionB:", OptionB)
@@ -31,18 +32,18 @@ func main() {
     fmt.Println()
     // Activate option B
     fmt.Println("Activate OptionB")
-    options = bitwise.SetFlag(options, OptionB)
+    options.SetFlag(OptionB)
     fmt.Println("Current pool", options)
-    fmt.Println("Is OptionB on ?", bitwise.IsFlagSet(options, OptionB))
+    fmt.Println("Is OptionB on ?", options.IsFlagSet(OptionB))
     fmt.Println()
     // Toggle option A (from off to on)
     fmt.Println("Toggle OptionA")
-    options = bitwise.ToggleFlag(options, OptionA)
+    options.ToggleFlag(OptionA)
     fmt.Println("Current pool", options)
     fmt.Println()
     // Remove OptionB
     fmt.Println("Remove OptionB")
-    options = bitwise.UnsetFlag(options, OptionB)
+    options.UnsetFlag(OptionB)
     fmt.Println("Current pool", options)
     fmt.Println()
     // Something else
@@ -71,5 +72,5 @@ Remove OptionB
 Current pool 1
 
 OptionA + OptionC debug print
-dec(5)|bin(101)
+0000000000000000000000000000000000000000000000000000000000000101(5)
 ```
