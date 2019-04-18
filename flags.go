@@ -10,36 +10,36 @@ import (
 type Flags uint64
 
 // String implements the stdlib Stringer interface
-func (f Flags) String() string {
-	return strconv.FormatUint(uint64(f), 2)
+func (pool Flags) String() string {
+	return strconv.FormatUint(uint64(pool), 2)
 }
 
 // GoString implements the stdlib GoStringer interface (use "%#v")
-func (f Flags) GoString() string {
-	return fmt.Sprintf("%064b(%d)", f, f)
+func (pool Flags) GoString() string {
+	return fmt.Sprintf("%064b(%d)", pool, pool)
 }
 
 // IsFlagSet returns true if the flag "flag" is present within "pool" (AND)
-func IsFlagSet(pool, flag Flags) bool {
+func (pool Flags) IsFlagSet(flag Flags) bool {
 	return pool&flag == flag
 }
 
 // UnsetFlag unset "flag" value within "pool" (AND NOT)
-func UnsetFlag(pool, flag Flags) Flags {
-	return pool &^ flag
+func (pool Flags) UnsetFlag(flag Flags) {
+	pool = pool &^ flag
 }
 
 // SetFlag activate "flag" within "pool" (OR)
-func SetFlag(pool, flag Flags) Flags {
-	return pool | flag
+func (pool Flags) SetFlag(flag Flags) {
+	pool = pool | flag
 }
 
 // ToggleFlag switch the state of "flag" within "pool" (XOR)
-func ToggleFlag(pool, flag Flags) Flags {
-	return pool ^ flag
+func (pool Flags) ToggleFlag(flag Flags) {
+	pool = pool ^ flag
 }
 
-// CountFlags returns the number of flags (bits) set in "pool" (Hamming weight)
-func CountFlags(pool Flags) int {
+// Count returns the number of flags (bits) set in "pool" (Hamming weight)
+func (pool Flags) Count() int {
 	return bits.OnesCount64(uint64(pool))
 }
